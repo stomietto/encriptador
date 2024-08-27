@@ -1,0 +1,93 @@
+:root {
+    --color-primario: #0A3871;
+    --color-secundario:#D8DFE8;
+    --color-fondo: #F3F5FC; 
+    --color-hover: #272727;
+    --color-font-primario: #0A3871;
+    --color-font-secundario: #495057; 
+}
+
+* {
+    padding: 0%;
+    margin: 0%;
+    font-family: Inter;
+    color: var(--color-font-primario);
+
+}
+
+body{
+    background-color: var(--color-fondo);
+}
+
+.modulo__encriptador {
+    padding: 3% 3%;
+    display: flex;
+    align-items:self-start;
+    justify-content: space-between;
+    height: 25em;
+    align-self:flex-end;
+    min-height: 40em;
+    max-height: 944px;
+}
+
+.modulo__texto{
+    display: flex;
+    flex-direction: column;
+    font-size: x-large;
+    border-style: hidden;
+    background-color: var(--color-fondo);
+    min-height: 20em;
+    min-width: 25em;
+}
+
+.modulo__letra_chica{
+    display: flex;
+    font-size:x-small;
+    flex-direction: row;
+    align-items: center;
+    padding: 5% 1% 5% 0%;
+    gap: 5px;
+}
+
+.modulo__botones{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 32px;
+    width: 30em;
+    padding: 10px 5px;
+}
+
+.modulo__boton__encriptar{
+    padding: 10px;
+    text-align: center;
+    background-color: var(--color-primario);
+    color: #ffffff; 
+    text-decoration: none; 
+    border-radius: 15px; 
+    width: 70em;
+}
+
+.modulo__boton__desencriptar{
+    padding: 10px;
+    text-align: center;
+    background-color: var(--color-secundario);
+    border: 1px solid var(--color-font-primario);
+    color: var(--color-font-primario); 
+    text-decoration: none; 
+    border-radius: 15px; 
+    width: 70em;
+}
+
+.modulo__muñeco{
+    background-color: #FFFFFF;
+    border-radius: 40px;
+    min-height: 40em;
+
+}
+
+.imagen__muñeco{
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+}
