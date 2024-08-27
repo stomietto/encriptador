@@ -1,4 +1,157 @@
-let texto = document.getElementById("texto").value;
+// Función para encriptar el texto
+function encriptar() {
+    const textoInput = document.getElementById("texto").value;
+
+    // Validar que solo se usen letras minúsculas y sin acentos
+    if (!/^[a-z\s]*$/.test(textoInput)) {
+        alert("Por favor, ingresa solo letras minúsculas y sin acentos.");
+        return;
+    }
+
+    let textoEncriptado = textoInput
+        .replace(/e/g, "enter")
+        .replace(/i/g, "imes")
+        .replace(/a/g, "ai")
+        .replace(/o/g, "ober")
+        .replace(/u/g, "ufat");
+
+    mostrarResultado(textoEncriptado);
+}
+
+// Función para desencriptar el texto
+function desencriptar() {
+    const textoInput = document.getElementById("texto").value;
+
+    // Validar que solo se usen letras minúsculas y sin acentos
+    if (!/^[a-z\s]*$/.test(textoInput)) {
+        alert("Por favor, ingresa solo letras minúsculas y sin acentos.");
+        return;
+    }
+
+    let textoDesencriptado = textoInput
+        .replace(/enter/g, "e")
+        .replace(/imes/g, "i")
+        .replace(/ai/g, "a")
+        .replace(/ober/g, "o")
+        .replace(/ufat/g, "u");
+
+    mostrarResultado(textoDesencriptado);
+}
+
+// Función para mostrar el resultado en pantalla y ocultar/mostrar la imagen
+function mostrarResultado(texto) {
+    // Crear un elemento de resultado si no existe
+    let resultadoDiv = document.getElementById("resultado");
+    if (!resultadoDiv) {
+        resultadoDiv = document.createElement("div");
+        resultadoDiv.id = "resultado";
+        resultadoDiv.className = "modulo__resultado";
+        document.querySelector(".modulo__encriptador").appendChild(resultadoDiv);
+    }
+    
+    // Mostrar el texto en el div de resultado
+    resultadoDiv.innerHTML = `
+        <textarea id="textoResultado" class="modulo__texto">${texto}</textarea>
+        <button onclick="copiarTexto()">Copiar</button>
+    `;
+
+    // Ocultar la imagen y el mensaje inicial
+    document.querySelector(".modulo__muñeco").style.display = "none";
+}
+
+// Función para copiar el texto al portapapeles
+function copiarTexto() {
+    const textoResultado = document.getElementById("textoResultado");
+    textoResultado.select();
+    document.execCommand("copy");
+    alert("Texto copiado al portapapeles");
+}
+
+// Evento para mostrar la imagen de nuevo cuando se limpia el texto
+document.getElementById("texto").addEventListener("input", function () {
+    if (this.value === "") {
+        document.querySelector(".modulo__muñeco").style.display = "block";
+        const resultadoDiv = document.getElementById("resultado");
+        if (resultadoDiv) {
+            resultadoDiv.innerHTML = "";
+        }
+    }
+});
+
+
+
+
+/*// Función para encriptar el texto
+function encriptar() {
+    const textoInput = document.getElementById("texto").value;
+
+    // Validar que solo se usen letras minúsculas y sin acentos
+    if (!/^[a-z\s]*$/.test(textoInput)) {
+        alert("Por favor, ingresa solo letras minúsculas y sin acentos.");
+        return;
+    }
+
+    let textoEncriptado = textoInput
+        .replace(/e/g, "enter")
+        .replace(/i/g, "imes")
+        .replace(/a/g, "ai")
+        .replace(/o/g, "ober")
+        .replace(/u/g, "ufat");
+
+    mostrarResultado(textoEncriptado);
+}
+
+// Función para desencriptar el texto
+function desencriptar() {
+    const textoInput = document.getElementById("texto").value;
+
+    // Validar que solo se usen letras minúsculas y sin acentos
+    if (!/^[a-z\s]*$/.test(textoInput)) {
+        alert("Por favor, ingresa solo letras minúsculas y sin acentos.");
+        return;
+    }
+
+    let textoDesencriptado = textoInput
+        .replace(/enter/g, "e")
+        .replace(/imes/g, "i")
+        .replace(/ai/g, "a")
+        .replace(/ober/g, "o")
+        .replace(/ufat/g, "u");
+
+    mostrarResultado(textoDesencriptado);
+}
+
+// Función para mostrar el resultado en pantalla
+function mostrarResultado(texto) {
+    // Crear un elemento de resultado si no existe
+    let resultadoDiv = document.getElementById("resultado");
+    if (!resultadoDiv) {
+        resultadoDiv = document.createElement("div");
+        resultadoDiv.id = "resultado";
+        resultadoDiv.className = "modulo__resultado";
+        document.querySelector(".modulo__encriptador").appendChild(resultadoDiv);
+    }
+    
+    // Mostrar el texto en el div de resultado
+    resultadoDiv.innerHTML = `
+        <textarea id="textoResultado" class="modulo__texto">${texto}</textarea>
+        <button onclick="copiarTexto()">Copiar</button>
+    `;
+}
+
+// Función para copiar el texto al portapapeles
+function copiarTexto() {
+    const textoResultado = document.getElementById("textoResultado");
+    textoResultado.select();
+    document.execCommand("copy");
+    alert("Texto copiado al portapapeles");
+}
+
+
+
+
+
+/*let texto = document.getElementById("texto").value;
 let specialCharacters = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/g;
 let upperCase = (character !== character.toLowerCase())/g;
 let empty=""/g;
